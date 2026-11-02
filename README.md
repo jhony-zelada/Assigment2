@@ -67,3 +67,22 @@ The dashboard's **"Read carefully"** list surfaces two kinds of risk:
 ---
 
 ## How it works
+
+a) GO to the app
+https://hszuauz4cunk8cqdbwjkws.streamlit.app/
+
+b) introduce Some example of customer feedback in the tab "Returning customer: share your reason":
+
+The price was a great deal
+
+WHen I needed the agent came to help me out so fast!
+
+The premium covered 24/7 mechanical assistance, it was awesome! 
+
+your premium was the cheapest I found this year 
+
+When I call , the agents are so kind
+
+Your app was to easy to work with
+
+You are the best
