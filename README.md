@@ -1,34 +1,69 @@
-# Slice Street Pizza: feedback app (starter)
+# RoadGuard Car Insurance — Why Do Customers Come Back?
 
-Imagine you run a pizza company. Customers leave feedback, you store it, and you analyze the
-data later. The app has two tabs.
+A small Streamlit app that collects, labels, and analyzes **why returning
+customers chose to renew** with a car insurance company. Each feedback comment
+is classified into one of four business features — **price**, **coverage**,
+**quality of service**, or **other** — and the owner gets a live dashboard that
+answers a single question:
 
-**Customer tab:** type a comment and choose a star rating (1 to 5). The app labels the comment
-(positive or negative) and saves it to `feedback.csv`.
+> **What makes customers come back?**
 
-**Owner tab:** the analysis, which shows:
-1. how many comments are positive vs negative,
-2. the average star rating for each label,
-3. the comments to read carefully: a positive label with a low rating, or a negative label
-   with a high rating (or a label that is unclear).
+The app is a prototype for **customer-retention analytics**. It replaces the
+"we think they came back for the price" gut feeling with a labelled,
+quantifiable, and reviewable data trail.
 
-The app starts empty. Add comments live. `demo_comments.csv` has 20 fictional comments with
-ratings that you can type in (or copy from) to fill it up.
+---
 
-## Files
-- `app.py`: the Streamlit app
-- `labeler.py`: the function that asks the LLM for a label
-- `logo.png`, `logo.svg`: the company logo
-- `demo_comments.csv`: sample comments to type in, not loaded automatically
-- `requirements.txt`: packages Streamlit Cloud installs for you
+## Business context
 
-## Run it online for free (no terminal)
-1. Put these files in a public GitHub repository (upload them in the browser).
-2. On share.streamlit.io, create an app from the repository, main file `app.py`.
-3. Under Advanced settings, add a secret: `GROQ_API_KEY = "your key"` (a free Groq key, no credit card).
-Saved files can disappear when the app restarts, so use the Download CSV button.
+Returning customers are the cheapest revenue a car insurer has. Renewal costs a
+fraction of acquisition, and a book of loyal policyholders stabilizes the loss
+ratio. Yet most small insurers do not systematically record *why* a customer
+renewed. Marketing budgets and product decisions then get steered by anecdotes.
 
-## If something goes wrong
-- `KeyError: 'GROQ_API_KEY'` means the secret is missing or named differently. Add it under the app's Secrets.
-- A 404 error means the model was retired. Find a current one at console.groq.com/docs/models and change `MODEL` in `labeler.py`.
-- A 429 error means too many requests. Wait a minute and try again.
+This app captures that "why" at the point of renewal, in the customer's own
+words, and turns it into four measurable buckets the business can act on:
+
+| Feature | What it tells the business |
+|--------|---------------------------|
+| **Price** | We are winning on premium. Upside: cross-sell. Risk: price war. |
+| **Coverage** | Our product design is the differentiator. Keep investing in it. |
+| **Quality of service** | Claims, agents, or app experience are working. Protect it. |
+| **Other** | Not yet classifiable — worth a human read. |
+
+The dashboard's **"Read carefully"** list surfaces two kinds of risk:
+
+1. Comments the classifier could not place (labelled `other`), and
+2. Returning customers who rated the service **2 stars or fewer** — they
+   renewed, but they are unhappy and are a churn risk at the next renewal.
+
+---
+
+## Features
+
+- **Customer-facing tab** — one short text box, a star rating, and a
+  "Send" button. The comment is sent to an LLM, which returns a single
+  feature label. The result is saved to `feedback.csv`.
+- **Owner-facing tab** — KPIs, three charts, and a prioritised reading list.
+  - Total reasons, **Top reason (with % share)**, average stars, count of
+    reasons to read carefully.
+  - Reasons by feature (bar chart).
+  - Average stars by feature (bar chart).
+  - Reasons by feature and star rating (stacked bar chart).
+  - **"Read carefully"** table: unclassified reasons and low-rated renewals.
+  - Full feedback table, CSV download, and a reminder that Streamlit Cloud
+    does not persist the CSV across restarts.
+- **Labels are computed by an LLM** (Groq's `openai/gpt-oss-20b` by default),
+  following this instruction:
+
+  > *"Label the comment with exactly one of: price, coverage, quality of
+  > service, or other. If more than one feature of the service is mentioned,
+  > label by the first mentioned."*
+
+- **Robust to model drift** — a small alias map (`cost → price`,
+  `service → quality of service`, `cover → coverage`, …) ensures common
+  near-misses don't fall into `other`.
+
+---
+
+## How it works
