@@ -59,7 +59,7 @@ def load_feedback(path: str) -> pd.DataFrame:
 
 st.set_page_config(page_title=TITLE, page_icon=LOGO, layout="wide")
 if os.path.exists(LOGO):
-    st.image(LOGO, width=90)
+    st.image(LOGO, width=120)
 st.title(TITLE)
 st.caption("Returning customers tell us why they came back. "
            "The app labels the reason and the owner analyzes it later.")
@@ -72,7 +72,7 @@ with st.sidebar:
             os.remove(CSV_FILE)
         st.success("feedback.csv deleted. The app now starts from an empty table.")
         st.rerun()
-    st.caption("Use this if the CSV was created by an older version of the app.")
+    st.caption("Use this if the CSV was created by an previous analysis.")
 
 # ---- Load ------------------------------------------------------------------
 df = load_feedback(CSV_FILE)
