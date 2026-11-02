@@ -59,7 +59,7 @@ def load_feedback(path: str) -> pd.DataFrame:
 
 st.set_page_config(page_title=TITLE, page_icon=LOGO, layout="wide")
 if os.path.exists(LOGO):
-    st.image(LOGO, width=170)
+    st.image(LOGO, width=120)
 st.title(TITLE)
 st.caption("Returning customers tell us why they came back. "
            "The app labels the reason and the owner analyzes it later.")
