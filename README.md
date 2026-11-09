@@ -1,12 +1,10 @@
-# RoadGuard Car Insurance — Why Do Customers Come Back?
+# Business question: What are the primary drivers of customer renewals for RoadGuard Car Insurance?
 
-A small Streamlit app that collects, labels, and analyzes **why returning
+A small Streamlit app will collects, labels, and analyzes **why returning
 customers chose to renew** with a car insurance company. Each feedback comment
 is classified into one of four business features — **price**, **coverage**,
 **quality of service**, or **other** — and the owner gets a live dashboard that
 answers a single question:
-
-> **What makes customers come back?**
 
 The app is a prototype for **customer-retention analytics**. It replaces the
 "we think they came back for the price" gut feeling with a labelled,
@@ -17,9 +15,8 @@ quantifiable, and reviewable data trail.
 ## Business context
 
 Returning customers are the cheapest revenue a car insurer has. Renewal costs a
-fraction of acquisition, and a book of loyal policyholders stabilizes the loss
-ratio. Yet most small insurers do not systematically record *why* a customer
-renewed. Marketing budgets and product decisions then get steered by anecdotes.
+fraction of acquisition. Once the company be aware of that, it can allocate resource to maintain or improve some area of this business like: Price, Coverage, Quality of serviceor other.
+
 
 This app captures that "why" at the point of renewal, in the customer's own
 words, and turns it into four measurable buckets the business can act on:
