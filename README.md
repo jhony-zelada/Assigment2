@@ -24,12 +24,12 @@ renewed. Marketing budgets and product decisions then get steered by anecdotes.
 This app captures that "why" at the point of renewal, in the customer's own
 words, and turns it into four measurable buckets the business can act on:
 
-| Feature | What it tells the business |
-|--------|---------------------------|
-| **Price** | We are winning on premium. Upside: cross-sell. Risk: price war. |
-| **Coverage** | Our product design is the differentiator. Keep investing in it. |
-| **Quality of service** | Claims, agents, or app experience are working. Protect it. |
-| **Other** | Not yet classifiable — worth a human read. |
+| Feature | Definition | What it tells the business |
+| :--- | :--- | :--- |
+| **Price** | Feedback related to cost, perceived value, and how pricing compares to competitors. | We are winning on premium. Upside: cross-sell. Risk: price war. |
+| **Coverage** | Feedback highlighting product variety, uniqueness, or design as a key competitive advantage. | Our product design is the differentiator. Keep investing in it. |
+| **Quality of service** | Feedback on overall customer experience, including support agents, claims, and app usability. | Claims, agents, or app experience are working. Protect it. |
+| **Other** | Vague, off-topic, or unclassifiable feedback that requires manual human review. | Not yet classifiable, so it worth a human read. |
 
 The dashboard's **"Read carefully"** list surfaces two kinds of risk:
 
