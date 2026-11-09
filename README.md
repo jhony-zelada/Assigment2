@@ -21,7 +21,7 @@ fraction of acquisition. Once the company be aware of that, it can allocate reso
 This app captures that "why" at the point of renewal, in the customer's own
 words, and turns it into four measurable buckets the business can act on:
 
-| Feature | Definition | What it tells the business |
+| Labels | Definition | What it tells the business |
 | :--- | :--- | :--- |
 | **Price** | Feedback related to cost, perceived value, and how pricing compares to competitors. | We are winning on premium. Upside: cross-sell. Risk: price war. |
 | **Coverage** | Feedback highlighting product variety, uniqueness, or design as a key competitive advantage. | Our product design is the differentiator. Keep investing in it. |
